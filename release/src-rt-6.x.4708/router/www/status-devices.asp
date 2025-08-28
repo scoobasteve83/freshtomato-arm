@@ -227,6 +227,7 @@ dg.populate = function() {
 					e2.name = e.name;
 				else if ((e2.name != '') && (e.name == ''))
 					e.name = e2.name;
+				
 
 				if ((e.freq != '') && (e2.freq == ''))
 					e2.freq = e.freq;
@@ -302,6 +303,8 @@ dg.populate = function() {
 			e.name = a[2];
 		/* not empty: compare name from dhcpd_lease and dhcpd_static, if different - add */
 		else {
+			http.name = '<a href=http://' + e.name + '>' + e.name + '</a>';
+			e.name = http.name
 			b = e.name.toLowerCase();
 			c = a[2].toLowerCase();
 			if ((b.indexOf(c) == -1) && (c.indexOf(b) == -1))
